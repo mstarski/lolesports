@@ -1,0 +1,38 @@
+version: '3'
+services:
+  lolbetpy:
+    container_name: lolbetpy
+    image: 559970378337.dkr.ecr.eu-central-1.amazonaws.com/lolbetpy
+    ports:
+      - "8000:8000"
+    command: ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--reload"]
+
+  lolesports:
+    container_name: lolesports
+    build:
+      context: .
+      dockerfile: ./dev.Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    depends_on:
+      - redis
+
+  redis:
+    container_name: redis
+    image: redis:7.0-rc3
+
+  redis-commander:
+    container_name: redis-commander
+    image: rediscommander/redis-commander:latest
+    restart: always
+    environment:
+      - REDIS_HOST=redis
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis
+
+
+
