@@ -7,17 +7,18 @@
   "license": "UNLICENSED",
   "scripts": {
     "postinstall": "yarn external-spec-dl",
+    "prebuild": "rimraf dist",
     "start:dev": "docker-compose -f dev.docker-compose.yml up",
+    "external-spec-dl:dev": "docker exec -it lolesports sh -c \"yarn external-spec-dl\"",
     "start:local": "nest start --watch",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "external-spec-dl": "scripts/external-spec-dl.mjs",
-    "prebuild": "rimraf dist",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "external-spec-dl": "scripts/external-spec-dl.mjs"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
