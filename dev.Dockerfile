@@ -9,6 +9,7 @@ WORKDIR /app
 
 COPY . .
 
+RUN apk add openjdk11 # Java needed for openapi-generator-cli
 RUN yarn install --frozen-lockfile --ignore-engines
 
 CMD ["yarn", "start:local"]
