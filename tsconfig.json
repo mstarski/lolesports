@@ -17,8 +17,16 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
+
     "paths": {
-      "@external/*": ["src/external/*"]
+      "@core/*": ["src/core/*"],
+      "@cqrs/*": ["src/cqrs/*"],
+      "@db/*": ["src/db/*"],
+      "@dtos/*": ["src/dtos/*"],
+      "@external/*": ["src/external/*"],
+      "@infra/*": ["src/infra/*"],
+      "@rest-api/*": ["src/rest-api/*"],
+      "@util/*": ["src/util/*"]
     }
   }
 }
