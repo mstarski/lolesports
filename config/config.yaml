@@ -1,0 +1,13 @@
+http:
+  port: 3000
+
+db:
+  postgres:
+    type: 'postgres'
+    host: 'lolesports-db'
+    port: 5432
+    username: 'user'
+    password: 'password'
+    database: 'lolesports'
+
+

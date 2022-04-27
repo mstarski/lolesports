@@ -18,6 +18,17 @@ services:
       - .:/app
     depends_on:
       - redis
+      - lolesports-db
+
+  lolesports-db:
+    container_name: lolesports-db
+    image: postgres:14.2-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: lolesports
 
   redis:
     container_name: redis
